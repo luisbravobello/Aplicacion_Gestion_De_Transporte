@@ -1,4 +1,4 @@
-﻿using CapaDatos;
+using CapaDatos;
 using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
@@ -136,16 +136,5 @@ namespace CapaNegocios
             }
         }
 
-        public void Ocultar(int id)
-        {
-            using (SqlConnection conn = conexion.ObtenerConexion())
-            {
-                conn.Open();
-                string query = "UPDATE Transporte SET Activo=0 WHERE Id=@Id"; // Asumiendo que hay una columna Activo
-                SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@Id", id);
-                cmd.ExecuteNonQuery();
-            }
-        }
-    }
+    }    
 }
